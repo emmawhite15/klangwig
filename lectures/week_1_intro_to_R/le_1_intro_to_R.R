@@ -103,6 +103,7 @@ mydata
 head(mydata)
 #what did I call those variables again?
 names(mydata)
+tail(mydata)
 
 #add a new column that is just height and weight
 mydata$sum <-  mydata$height + mydata$weight
