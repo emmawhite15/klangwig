@@ -3,8 +3,8 @@ title: "Week 2 - GitHub"
 author: "Kate Langwig"
 date: "1/25/2024"
 output:
-  ioslides_presentation: default
   beamer_presentation: default
+  ioslides_presentation: default
   github_document: default
 ---
 
@@ -48,9 +48,18 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Terminology cont.
 
--   branch: How do multiple people work on a project at the same time without Git getting them confused? Usually, they “branch off” of the main project with their own versions full of changes they themselves have made. After they’re done, it’s time to “merge” that branch back with the “master,” the main directory of the project. Because we'll be working within our own repos, we don't need to worry too much about branching but is good to know for future.
 
 -   push: This is how you upload your file to GitHub. Remember, you need to both commit and push for your file to be sent to GitHub.
+
+- pull: This is how you bring edits from GitHub to your computer. If I make changes to your code, pulling will integrate them. You will need to do this every time you open your project. 
+
+-   branch: How do multiple people work on a project at the same time without Git getting them confused? Usually, they “branch off” of the main project with their own versions full of changes they themselves have made. After they’re done, it’s time to “merge” that branch back with the “master,” the main directory of the project. Because we'll be working within our own repos, we don't need to worry too much about branching but is good to know for future.
+
+## Class pledge
+
+I solemnly swear that every time I open my repository I will **(1) Pull, (2) make changes I want to make, (3) Commit, (4) Push**. 
+
+I swear I will never make a change to my repository without committing and pushing.
 
 ## Sending your files to our class repository
 
