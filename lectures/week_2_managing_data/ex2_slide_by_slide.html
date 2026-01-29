@@ -3068,18 +3068,21 @@ var loadDeck = function(event) {
   });
 };
 
-if (document.readyState !== "loading" &&
-    document.querySelector('slides') === null) { 
-  // if the document is done loading but our element hasn't yet appeared, defer
-  // loading of the deck
-  window.setTimeout(function() {
-    loadDeck(null);
-  }, 0);
-} else {
-  // still loading the DOM, so wait until it's finished
-  document.addEventListener("DOMContentLoaded", loadDeck);
-}
+if (!window.Shiny) {
+  // If Shiny is loaded, the slide deck is initialized in ioslides template
 
+  if (document.readyState !== "loading" &&
+      document.querySelector('slides') === null) {
+    // if the document is done loading but our element hasn't yet appeared, defer
+    // loading of the deck
+    window.setTimeout(function() {
+      loadDeck(null);
+    }, 0);
+  } else {
+    // still loading the DOM, so wait until it's finished
+    document.addEventListener("DOMContentLoaded", loadDeck);
+  }
+}
 
 
 </script>
@@ -3121,6 +3124,7 @@ span.underline{text-decoration: underline;}
 div.column{display: inline-block; vertical-align: top; width: 50%;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -3208,7 +3212,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 <ul>
 <li>learn to link GitHub to RStudio</li>
 <li>edit your first project and send it to GitHub</li>
-<li>use the tidyverse to manipulate your data</li>
+<li>use the tidyverse to manipulate your data (next week!)</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Working in Github</h2></hgroup><article  id="working-in-github">
+
+<ul>
+<li>Git is version control system, with the original purpose of allowing groups to work collaboratively on software projects</li>
+<li>Git manages the evolution of a set of files - called a repository</li>
+<li>A repository is essentially a folder where you store your stuff</li>
+<li>Version control works a bit like &ldquo;Track Changes&rdquo; in word, Git will track the changes we make to our code so we can return to previous versions</li>
+<li>It also allows collaboration so I can look at your code and make changes - a bit like a more complicated version of Google Docs</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Will this hurt?</h2></hgroup><article  id="will-this-hurt">
+
+<ul>
+<li><p>Maybe!</p></li>
+<li><p>But, I think this important enough that we NEED exposure to this. This is the future!</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>But I only code alone!</h2></hgroup><article  id="but-i-only-code-alone">
+
+<ul>
+<li><p>You need to carefully document your steps if the only person you are sharing code with is the future version of yourself</p></li>
+<li><p>In addition, most journals require publicly available data and code - open code is the norm, not the exception.</p></li>
+<li><p>Using Git has gotten easier. We used to have to use command line to communicate with Git, but now we can just use RStudio!</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Terminology</h2></hgroup><article  id="terminology">
+
+<ul>
+<li><p>repository: A directory or storage space where your projects can live. Sometimes GitHub users shorten this to &ldquo;repo.&rdquo; (If you’re cool like that.) It is usually a local folder on your computer. You can keep code files, text files, image files, you name it, inside a repository.</p></li>
+<li><p>commit: This is the command that gives Git its power. When you commit, you are taking a &ldquo;snapshot&rdquo; of your repository at that point in time, giving you a checkpoint to which you can reevaluate or restore your project to any previous state.When you first start &ldquo;commiting&rdquo;, it is important to remember this is taking the picture, not SENDING the picture. (Sending is called &ldquo;pushing&rdquo;)</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Terminology cont.</h2></hgroup><article  id="terminology-cont.">
+
+<ul>
+<li><p>branch: How do multiple people work on a project at the same time without Git getting them confused? Usually, they &ldquo;branch off&rdquo; of the main project with their own versions full of changes they themselves have made. After they’re done, it’s time to &ldquo;merge&rdquo; that branch back with the &ldquo;master,&rdquo; the main directory of the project. Because we’ll be working within our own repos, we don’t need to worry too much about branching but is good to know for future.</p></li>
+<li><p>push: This is how you upload your file to GitHub. Remember, you need to both commit and push for your file to be sent to GitHub.</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Sending your files to our class repository</h2></hgroup><article  id="sending-your-files-to-our-class-repository">
+
+<ul>
+<li>We have an &ldquo;organization&rdquo; account for our class</li>
+<li>Normally, we would have to pay for private repositories,github is giving us UNLIMITED private repositories. That’s pretty awesome.</li>
+<li>Why should we want things open-source? Why not?</li>
 </ul>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Pre-course homework</h2></hgroup><article  id="pre-course-homework">
@@ -3255,7 +3306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; }
 <li>edit something in your repository</li>
 <li>commit your edits using Git</li>
 <li>Push your edits to GitHub</li>
-<li>Complete your assignment in tidyverse for week 2</li>
+<li>Complete your assignment in tidyverse for week 2 (next week!!!)</li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>1. Configure Git on your computer</h2></hgroup><article  id="configure-git-on-your-computer">
@@ -3407,28 +3458,16 @@ gitcreds_get()</pre>
 <li>Similarly, navigate to your repo on GitHub via your web browser. Check to see if you can see your README file with your changes. If you can’t, (1) read through everything again and make sure you didn’t missing anything, (2) ask for help.</li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Explore the tidyverse</h2></hgroup><article  id="explore-the-tidyverse">
+</article></slide><slide class=""><hgroup><h2>Explore the tidyverse (Next week!)</h2></hgroup><article  id="explore-the-tidyverse-next-week">
 
-<ul>
-<li><ol>
-<li>Put your data in tidy format</li>
-</ol></li>
-<li><ol>
-<li>Read your data into R.</li>
-</ol></li>
-<li><ol>
-<li>Examine your data for mistakes.</li>
-</ol></li>
-<li><ol>
-<li>Experiment with &ldquo;group by&rdquo; in dplyr to do some calculation.</li>
-</ol></li>
-<li><ol>
-<li>Use mutate and summarise on your data. How are these different? Annotate your code.</li>
-</ol></li>
-<li><ol>
-<li>Commit and push to GitHub. Be sure to update your README!</li>
-</ol></li>
-</ul>
+<ol>
+<li><p>Put your data in tidy format</p></li>
+<li><p>Read your data into R.</p></li>
+<li><p>Examine your data for mistakes.</p></li>
+<li><p>Experiment with &ldquo;group by&rdquo; in dplyr to do some calculation.</p></li>
+<li><p>Use mutate and summarise on your data. How are these different? Annotate your code.</p></li>
+<li><p>Commit and push to GitHub. Be sure to update your README!</p></li>
+</ol>
 
 </article></slide><slide class=""><hgroup><h2>Turning in the assignment</h2></hgroup><article  id="turning-in-the-assignment">
 
@@ -3459,6 +3498,11 @@ gitcreds_get()</pre>
        window.jQuery(document).on('slideenter', function(e) {
          window.jQuery(e.target).trigger('shown');
       });
+    }
+    if (window.Shiny) {
+      // Initialize slides when this script appears on the page, since it
+      // indicates that the <slides> markup has been fully loaded.
+      window.loadDeck();
     }
   })();
 </script>
