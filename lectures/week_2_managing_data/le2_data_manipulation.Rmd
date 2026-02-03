@@ -12,9 +12,11 @@ knitr::opts_chunk$set(echo = T)
 ## While you are waiting for class to begin...
 
 - Navigate to https://github.com/VTQuantMethodsEEB/klangwig
-- Scroll down to week 2
-- Download the slides and the R script for today
-- Open the R script so you can run it while I talk
+- In R, go to file--> new project --> version control-->git-->copy and paste the directory name
+- make sure klangwig fills in as the name of the directory
+- **Store in the class folder that you can find!**
+- Each class --double click klangwig.Rproj and pull
+- Open the R script le2.R so you can run it while I talk
 
 ## Housekeeping
 

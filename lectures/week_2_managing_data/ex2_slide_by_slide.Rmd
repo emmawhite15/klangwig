@@ -3,8 +3,8 @@ title: "Week 2 - GitHub"
 author: "Kate Langwig"
 date: "1/25/2024"
 output:
-  beamer_presentation: default
   ioslides_presentation: default
+  beamer_presentation: default
   github_document: default
 ---
 
@@ -115,7 +115,7 @@ knitr::include_graphics("file_organization.png")
 ## install if needed (only do this once)
 ## install.packages("usethis")
 library(usethis)
-use_git_config(user.name = "Jane Doe", "user.email = jane@vt.edu")
+use_git_config(user.name = "Jane Doe", user.email = "jane@vt.edu")
 ```
 
 -   Make sure you use the user name and email you used to sign up for github!
