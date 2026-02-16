@@ -52,7 +52,7 @@ g1
 batdat$species=as.character(batdat$species)
 batdat$nspecies[batdat$species=="EPFU"]="E. fuscus"
 batdat$nspecies[batdat$species=="MYLU"]="M. lucifugus"
-batdat$nspecies[batdat$species=="MYSE"]="M. sentrionalis"
+batdat$nspecies[batdat$species=="MYSE"]="M. septentrionalis"
 batdat$nspecies[batdat$species=="PESU"]="P. subflavus"
 batdat$nspecies[batdat$species=="SUBSTRATE"]="Substrate"
 
