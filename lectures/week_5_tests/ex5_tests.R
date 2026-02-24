@@ -135,9 +135,6 @@ forest_treat <- data.frame(
 )
 forest_treat
 
-# we also could have written this
-ttp<- t.test(colonies~trmt,data=forest_treat,paired=T)
-ttp
 
 #what if we didn't specify paired?
 ttp<- t.test(colonies~trmt,data=forest_treat,var.equal=T)
