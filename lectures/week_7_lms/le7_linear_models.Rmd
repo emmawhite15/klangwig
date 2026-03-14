@@ -140,7 +140,7 @@ library(corrplot)
 corrplot(cor(mtcars[, -1]))
 ```
 
-##Deciding what is "too"" correlated
+## Deciding what is "too"" correlated
 - variance inflation factors give an estimate of the multicollinearity among variables
 - they assess how much the variance of an estimated regression coefficient increases if your predictors are correlated
 - > 4: investigate; >8-10 is cause for serious concern (sometimes ppl say even lower) 

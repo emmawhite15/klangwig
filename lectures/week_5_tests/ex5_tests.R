@@ -57,7 +57,7 @@ sample(comb_ff,4, replace=F)
 
 #use jar example to illustrate sampling procedure
 
-for (i in 1:10000) {
+for (i in 1:1000) { #let i take the value 1 to 1000
   colonyboot <- sample(c(field,forest)) ## scramble
   ## pick out forest & field samples
   forestboot <- colonyboot[1:length(forest)] #this says assign the first six colonies to forest
@@ -86,7 +86,7 @@ abline(v=obs,col="red")
 ##so how do we get our p-value?
 res[res>=obs]
 length(res[res>=obs])
-240/10000
+25/1000
 mean(res>=obs)        
 #using mean(permutations>=obs)) is a trick to calculate the proportion: 
 #the logical statement returns a logical (FALSE/TRUE) vector, which then gets converted to a 0/1 vector when you ask R to take the mean, 

@@ -1,5 +1,7 @@
 rm(list=ls())
 
+library(performance)
+
 ##linear models lecture##
 ##week 6###
 
