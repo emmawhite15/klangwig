@@ -154,7 +154,7 @@ yhats=predict(l2,newdata=dat.new,interval = "confidence")
 ##ggplot2##
 head(mtcars)
 library(ggplot2)
-r=ggplot(data=mtcars, aes(x=wt, y=mpg))+ 
+r=ggplot(data=mtcars, aes(x=disp, y=mpg))+ 
   geom_point()+
   stat_smooth(method = "lm")+
   theme_bw() + 

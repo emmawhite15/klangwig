@@ -27,11 +27,14 @@ opts_chunk$set(fig.width=6,fig.height=4,fig.align="center",tidy=FALSE)
 - Parameters of a linear model typically characterize *differences* in means
 - These are differences per unit of change for *continuous* predictors, 
 - These are differences between groups (or between group averages) for *categorical* predictors
-- Interactions are **differences between differences**
+   -   Refresh: categorical predictors are referenced against a
+        baseline (labeled Intercept)
+
 
 ## Coding for categorical predictors: contrasts
 
-- What do the parameters of a linear model mean?  
+- What do the parameters of a linear model mean?
+  - other names for parameters: coefs, slopes (continuous), $\beta$
 - Start with categorical variables, because they're potentially more confusing ("intercept and slope" isn't too hard)
 - Default R behaviour: *treatment contrasts*
      - $\beta_1$ = expected value in baseline group (= first level of the factor variable, by default the first in alphabetical order);
@@ -78,10 +81,12 @@ pr(lm1 <- lm(colonies~place,data=ants))
 
 ## Figuring out the estimated values, not the differences
 
-R's behaviour may seem annoying at first -- it seems like the estimated values of the groups are what we're really interested in -- but it is really designed for testing *differences among groups*. To get the estimates per group, you could:
+R's behavior may seem annoying at first -- it seems like the estimated values of the groups are what we're really interested in -- but it is really designed for testing *differences among groups*. To get the estimates per group, you could:
 
 - `predict` (base R)
+
 - `emmeans` - package emmeans
+
 - `plot(allEffects(mod1))` - package effects
 
 - For your assignment this week, you will can you use the others, but your final graph should use `predict`
@@ -116,17 +121,10 @@ emmeans(lm1,specs=~place)
 plot(allEffects(lm1))
 ```
 
-## The `effects` package works on more complicated models
-
-```{r alleffects_interactions}
-lm3 <- lm(colonies~place*observers,data=ants)
-plot(allEffects(lm3))
-```
-
 
 ## Switching to a dataset with more than two levels
 
-Some data on lizard perching behaviour (`brglm` package; Schoener 1970 *Ecology* **51**:408-418). 
+Some data on lizard perching behavior (`brglm` package; Schoener 1970 *Ecology* **51**:408-418). 
 
 ```{r echo=FALSE,message=FALSE}
 if (!file.exists("lizards.csv")) {
@@ -141,7 +139,7 @@ if (!file.exists("lizards.csv")) {
 lizards <- read.csv("lizards.csv")
 ```
 
-Response is number of *Anolis grahami* lizards found on perches in particular conditions.
+Response (Y variable) is number of *Anolis grahami* lizards found on perches in particular conditions.
 
 ------
 
@@ -187,7 +185,7 @@ pr(lmX <- lm(grahami~time,data=lizards))
 
 ## Additive model
 
-Consider the `light` variable in addition to `time`.
+What is the effect of `light` AND `time` on lizard perching? (assuming these have indepdendent effects)
 ```{r lizardTL1}
 pr(lmTL1 <- lm(grahami~time+light,data=lizards))
 ```
@@ -255,6 +253,10 @@ cld(lsm1$emmeans,by = NULL, Letters = "ABCDEFGHIJ")
 
 - Interactions allow the value of one predictor to affect the
 relationship between another predictor and the response variable
+- The hypothesis here is that the effect of one variable depends on the presence of another
+  - This is often true in science! What are some examples?
+  
+## Interactions cont. 
 - Interpreting *main effects* in the presence
 of interactions is tricky
 - Your estimate of the effect of variable $X_1$ is no longer constant
@@ -267,18 +269,17 @@ of interactions is tricky
 ## An example
 
 - You think that the number of lizards on a perch on a sunny day might depend on the time day
-- For example, on a very sunny day, there might be fewer lizards perching at noon; whereas on a cloudy day, the number of lizards might be highest at noon
+-   For example, on a very sunny day, there might be fewer lizards
+    perching at midday because it is very hot; whereas on a cloudy day, the number of lizards might be highest at midday
 
 ## Testing interactions
-
-- Time is an important factor
 
 - Use an *interaction*:
 $$
 M = a + B_x X + B_t t + B_{xt} Xt
 $$
 - The interaction term $B_{xt}$ represents the *difference in the response* between the two groups.
-- It asks: **does the number of lizards perching depend on time of day and light?**
+- It asks: **does the number of lizards perching depend jointly on time of day and light?**
 
 
 - Could also write:
@@ -295,12 +296,12 @@ $$
 
 ## Interactions and parameters
 
-- We can use CIs, and coefficient plots, and get a pretty good idea what's
-going on
-- In more complicated cases, interaction terms may have many parameters 
-- These have all the interpretation problems of other multi-parameter
-variables
-- Think about "differences in differences"
+-   We can use emmeans and effects and get a pretty good idea
+    what's going on
+-   In more complicated cases, interaction terms may have many
+    parameters
+-   These have all the interpretation problems of other multi-parameter
+    variables
 
 ## Interaction model
 
@@ -360,11 +361,6 @@ label=paste0("beta[",1:6,"]"),parse=TRUE)+
 ```{r}
 plot(allEffects(lmTL2))
 ```
-
-## Other refs
-- http://sas-and-r.blogspot.com/2010/10/example-89-contrasts.html
-- [`gmodels::fit.contrast()`](http://hosho.ees.hokudai.ac.jp/~kubo/Rdoc/library/gmodels/html/fit.contrast.html) (show parameter estimates based on re-fitting models with new contrasts), [`rms::contrast.rms()`](http://hosho.ees.hokudai.ac.jp/~kubo/Rdoc/library/rms/html/contrast.html) (ditto, for `rms`-based fits)
-- http://www.ats.ucla.edu/stat/r/library/contrast_coding.htm
 
 
 ## Assignment - *PART 1*
