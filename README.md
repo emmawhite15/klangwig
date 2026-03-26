@@ -195,7 +195,7 @@ Week 9
 
 lecture: [le8_Linear_model_parameters](https://github.com/VTQuantMethodsEEB/klangwig/tree/master/lectures/week_8_advanced_lms)
 
-code: [ex8_linear_model_parameters](https://github.com/VTQuantMethodsEEB/klangwig/tree/master/lectures/week_8_advanced_lms/ex8_linear_model_parameters.R)
+code: [le8_linear_model_parameters](https://github.com/VTQuantMethodsEEB/klangwig/tree/master/lectures/week_8_advanced_lms/le8_linear_model_parameters.R)
 
 video: [advanced_linear_models](https://video.vt.edu/media/March+16th+-+Advanced+Linear+Models+-+Week+8+-+Prerecorded+lecture/1_yabmoret)
 
@@ -204,7 +204,7 @@ video: [advanced_linear_models](https://video.vt.edu/media/March+16th+-+Advanced
 
 lecture: [le8_Linear_model_parameters](https://github.com/VTQuantMethodsEEB/klangwig/blob/master/lectures/week_8_advanced_lms/le8_Linear%20model%20parameters.pdf) (last slide has assignment)
 
-code: use code from Tuesday
+code: [ex8_linear_model_parameters](https://github.com/VTQuantMethodsEEB/klangwig/tree/master/lectures/week_8_advanced_lms/ex8_linear_model_parameters.R)
 
 video: [mini_lecture_advanced_models](https://video.vt.edu/media/Advanced+Linear+ModelsA+Thursday+Mini-lecture/1_9ma32zad)
 

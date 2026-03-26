@@ -237,7 +237,9 @@ gitcreds_get()
 
 5.  Use mutate and summarise on your data. How are these different? Annotate your code.
 
-6.  Commit and push to GitHub. Be sure to update your README!
+6. Advanced users: Explore the pivot commands, changing data from wider to longer or vice versa
+
+7.  Commit and push to GitHub. Be sure to update your README!
 
 ## Turning in the assignment
 
